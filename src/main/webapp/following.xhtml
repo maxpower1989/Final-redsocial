@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	<ui:define name="title">
+		Bienvenido a tu nueva red social
+	</ui:define>
+	<ui:define name="content">
+
+		<h:form>
+			<p>Seguir a:</p>
+			<h:inputText value="#{followMb.otherUser}" placeholder="seguir"></h:inputText>
+			<h:commandLink action="#{followMb.follow}"
+				styleClass="btn btn-primary">Seguir</h:commandLink>
+
+
+		</h:form>
+		<ui:define name="content">
+			<h:outputText value="#{followMB.howIAmFollowing.name}"></h:outputText>
+			<h:outputText value="#{followMB.otherUser}"></h:outputText>
+		</ui:define>
+
+		<ui:repeat var="post" value="#{postMb.howIFollowPostList()}">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<h:outputText value="#{post.user.name}" />
+						<img src="/image/#{post.user.profilePicture.path}"
+							style="width: 50px; height: auto;" /> <small> <h:outputText
+								value="#{post.date}">
+								<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+							</h:outputText>
+						</small>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<h:outputText value="#{post.content}" />
+				</div>
+			</div>
+		</ui:repeat>
+	</ui:define>
+</ui:composition>
+</html>

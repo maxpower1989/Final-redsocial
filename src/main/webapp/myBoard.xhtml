@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	<ui:define name="title">
+		Bienvenido a tu nueva red social
+	</ui:define>
+	<ui:define name="content">
+		<h:form enctype="multipart/form-data">
+			<div class="panel panel-default">
+				<img src="/image/#{authMb.user.profilePicture.path}"
+					style="width: 150px; height: auto;" />
+				<div class="panel-body">
+					<h:inputFile id="file" value="#{profileMb.file}" />
+					<h:message for="file"></h:message>
+					<h:commandLink styleClass="btn btn-primary"
+						action="#{profileMb.changePorfilePicture}">
+			    		Cambiar foto de perfil			    		
+					</h:commandLink>
+				</div>
+			</div>
+		</h:form>
+
+		<h:form>
+			<p>Nueva contraseña</p>
+			<h:inputText value="#{profileMb.newPassword}"
+				placeholder="Nueva contraseña"></h:inputText>
+			<h:commandButton action="#{profileMb.changePassword}">Cambiar contrasena</h:commandButton>
+		</h:form>
+
+		
+
+
+		<ui:repeat var="post" value="#{postMb.myPostList}">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<h:outputText value="#{post.user.name}" />
+						<img src="/image/#{post.user.profilePicture.path}"
+							style="width: 50px; height: auto;" /> <small> <h:outputText
+								value="#{post.date}">
+								<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+							</h:outputText>
+						</small>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<h:outputText value="#{post.content}" />
+				</div>
+			</div>
+		</ui:repeat>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	<ui:define name="title">
+		Bienvenido a tu nueva red social
+	</ui:define>
+	<ui:define name="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Registrate</h3>
+						</div>
+						<div class="panel-body">
+							<h:form>
+								<div class="form-group">
+									<label>Nombre</label>
+									<h:inputText label="Nombre" id="name"
+										 value="#{registrationMb.user.name}"
+										styleClass="form-control" />
+									<h:message for="name" errorClass="alert alert-error"/>
+								</div>
+								<div class="form-group">
+									<label>Email</label>
+									<h:inputText label="Email" id="email"
+									    value="#{registrationMb.user.email}"
+										styleClass="form-control" />
+									<h:message for="email" errorClass="alert alert-error"/>
+								</div>
+								<div class="form-group">
+									<label>Contraseña</label>
+									<h:inputSecret label="Contraseña" id="pass"
+										value="#{registrationMb.user.password}"
+										styleClass="form-control" />
+									<h:message for="pass" errorClass="alert alert-error" />
+								</div>
+								<div class="form-group">
+									<label>Confirmar contraseña</label>
+									<h:inputSecret label="Nombre" value="#{registrationMb.confirmPass}"
+										styleClass="form-control" />
+								</div>
+								<h:commandLink styleClass="btn btn-primary" 
+									action="#{registrationMb.register}">
+									Registrar
+								</h:commandLink>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

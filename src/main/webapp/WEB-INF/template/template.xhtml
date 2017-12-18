@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >	 
+<html xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+	 
+<h:head>
+  <link rel="stylesheet"  href="/css/bootstrap.min.css" />
+  <link rel="stylesheet"  href="/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet"  href="/css/style.css" />
+  <title><ui:insert name="title" /></title>
+</h:head>
+<h:body>
+<f:view>
+	<div id="layout">		
+		<nav id="header">
+		<ui:include src="./menu.xhtml"/>
+		</nav>
+		<div id="content">
+			<h:messages globalOnly="true"
+				id="appMessages"
+				styleClass="list-group"
+				errorClass="list-group-item list-group-item-danger"
+				infoClass="list-group-item list-group-item-success" />
+			<ui:insert name="content">
+				<span>Página en construcción</span>
+			</ui:insert>
+		</div>
+	</div>
+</f:view>
+</h:body>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,8 @@
+<tomee>
+	<Resource id="MysqlDs" type="DataSource">
+		JdbcDriver com.mysql.jdbc.Driver
+		JdbcUrl jdbc:mysql://localhost/test23
+		UserName root
+		Password
+	</Resource>
+</tomee>

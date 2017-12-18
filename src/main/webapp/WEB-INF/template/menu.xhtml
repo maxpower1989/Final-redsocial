@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition>
+	<h:head>
+		<title>Owl</title>
+		<h:outputStylesheet library="css" name="style.css" />
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</h:head>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<img
+					src="https://i.pinimg.com/736x/25/8c/66/258c660e9eb1c8b298d3bcfc4a0ec64e--owl-eyes-corporate-logos.jpg"
+					style="width: 60px; height: auto;"></img> <a class="navbar-brand"
+					href="/">OWL</a>
+
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<h:form>
+					<ul class="nav navbar-nav">
+						<li><h:link outcome="home" value="Inicio"
+								rendered="#{authMb.logged}" /></li>
+						<li><h:link outcome="myBoard" value="Mis Post"
+								rendered="#{authMb.logged}" /></li>
+						<li><h:link outcome="following" value="Seguir"
+								rendered="#{authMb.logged}" /></li>
+						<li><h:commandLink rendered="#{authMb.logged}"
+								action="#{loginMb.logout}">Salir</h:commandLink></li>
+						<li><h:link outcome="login" value="Entrar"
+								rendered="#{!authMb.logged}" /></li>
+						<li><h:link outcome="register" value="Registrarse"
+								rendered="#{!authMb.logged}" /></li>
+					</ul>
+				</h:form>
+			</div>
+		</div>
+	</nav>
+</ui:composition>
+</html>
