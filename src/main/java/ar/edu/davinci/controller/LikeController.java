@@ -22,7 +22,7 @@ public class LikeController {
 				Likes.class);
 		q.setParameter("user", user);
 		q.setParameter("post", post);
-		if (q.getResultList().equals(null)) {
+		if (q.getResultList().size() < 1) {
 			entityManager.persist(l);
 		} else {
 			entityManager.remove(q.getSingleResult());
